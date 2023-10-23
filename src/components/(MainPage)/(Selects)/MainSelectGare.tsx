@@ -1,15 +1,20 @@
 ﻿"use client";
 
-import React from "react";
+import React, { ReactNode } from "react";
 import { useGlobalContext } from "@/context/TemeContext";
 
-export default function MainSelectGare({ genreSetAll }) {
+interface Props {
+  children?: ReactNode;
+}
+
+export default function MainSelectGare({ genreSetAll }: Props) {
   const genreAll = [...genreSetAll];
   const { genre, setGenre } = useGlobalContext();
 
   return (
     <select
       className="px-3 py-2"
+      value={genre}
       onChange={(e) => {
         setGenre(e.target.value);
       }}

@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import MainSelectGare from "./MainSelectGare";
 import MainSelectYear from "./MainSelectYear";
+import MainBtn from "./MainBtn";
 
 type Props = {};
 
@@ -15,12 +16,13 @@ async function getAllFilms() {
 export default async function MainSelects({}: Props) {
   const films = await getAllFilms();
 
-  const yearSetAll = new Set(films.map((a) => a.Year));
-  const genreSetAll = new Set(films.map((a) => a.Genre));
+  const yearSetAll: Set<number> = new Set(films.map((a) => a.Year));
+  const genreSetAll: Set<number> = new Set(films.map((a) => a.Genre));
 
   return (
     <div className="flex justify-evenly mt-10">
       <MainSelectYear yearSetAll={yearSetAll} />
+      <MainBtn />
       <MainSelectGare genreSetAll={genreSetAll} />
     </div>
   );

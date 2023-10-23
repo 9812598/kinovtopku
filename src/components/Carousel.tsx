@@ -5,7 +5,7 @@ type Props = {};
 
 export default function Carousel({ pics }: Props) {
   return (
-    <div className="grid grid-cols-5 gap-2">
+    <div className="self-center grid gap-2 grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
       {pics.map((pic) => (
         <Image
           src={pic}

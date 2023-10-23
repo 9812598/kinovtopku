@@ -20,7 +20,7 @@ export default async function Film({ params }) {
   const [film] = await getFilmByTitle(params);
 
   return (
-    <div className="flex flex-col gap-6 ">
+    <div className="flex flex-col gap-6 px-3">
       <FilmHeader />
       <Image
         src={film.Poster}
