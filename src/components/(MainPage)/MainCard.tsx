@@ -6,10 +6,10 @@ import { IFilm } from "@/types/types";
 
 type Props = {
   film: IFilm;
-  key: string
-}
+  key: string;
+};
 
-export default function MainCard({ film, key } : Props) {
+export default function MainCard({ film }: Props) {
   return (
     <>
       <Link href={film.Title.replaceAll(" ", "_")}>
@@ -23,6 +23,7 @@ export default function MainCard({ film, key } : Props) {
               fill
               alt="{film.Title}"
               className="rounded-lg object-cover "
+              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 30vw, 20vw"
             />
           </div>
         </div>

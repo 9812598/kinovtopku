@@ -4,7 +4,7 @@ import MainSelectYear from "./MainSelectYear";
 import MainBtn from "./MainBtn";
 import { IFilm } from "@/types/types";
 
-async function getAllFilms():Promise<IFilm[]> {
+async function getAllFilms(): Promise<IFilm[]> {
   const res = await fetch(`http://localhost:3004/films`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");

@@ -1,24 +1,21 @@
 ﻿"use client";
 
-import React, { ReactNode } from "react";
+import React from "react";
 import { useGlobalContext } from "@/context/TemeContext";
 
 interface Props {
-  children?: ReactNode;
+  genreSetAll: Set<string>;
 }
 
 export default function MainSelectGare({ genreSetAll }: Props) {
   const genreAll = [...genreSetAll];
   const { genre, setGenre } = useGlobalContext();
+  const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    setGenre(e.target.value);
+  };
 
   return (
-    <select
-      className="px-3 py-2"
-      value={genre}
-      onChange={(e) => {
-        setGenre(e.target.value);
-      }}
-    >
+    <select className="px-3 py-2" value={genre} onChange={onChangeHandler}>
       {genreAll.map((myGenre) => (
         <option value={myGenre} key={myGenre}>
           {myGenre}

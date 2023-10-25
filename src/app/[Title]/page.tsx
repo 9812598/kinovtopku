@@ -3,8 +3,7 @@ import FilmHeader from "@/components/FilmHeader";
 import Image from "next/image";
 import Carousel from "@/components/Carousel";
 
-
-async function getFilmByTitle(params: { Title: string; }) {
+async function getFilmByTitle(params: { Title: string }) {
   const title = params.Title.replaceAll("_", "%20");
   const res = await fetch(`http://localhost:3004/films?Title=${title}`);
   if (!res.ok) {
@@ -24,7 +23,8 @@ export default async function Film({ params }) {
         width={225}
         height={338}
         alt="Avatar of the film"
-        className="hover:bg-sky-700 hover:shadow-xl opacity-80 hover:opacity-100 duration-300 rounded-lg mt-5 self-center"
+        priority={false}
+        className="h-auto w-auto hover:bg-sky-700 hover:shadow-xl opacity-80 hover:opacity-100 duration-300 rounded-lg mt-5 self-center"
       />
       <h1>{film.Title}</h1>
       <h2 className="font-normal">{film.Plot}</h2>
