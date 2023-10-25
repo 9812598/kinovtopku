@@ -1,6 +1,6 @@
 ﻿"use client";
-
 import { IFilm } from "@/types/types";
+
 import {
   createContext,
   useContext,
@@ -14,8 +14,8 @@ interface ContextProps {
   setYear: Dispatch<SetStateAction<number>>;
   genre: string;
   setGenre: Dispatch<SetStateAction<string>>;
-  films: IFilm[] | null;
-  setFilms: Dispatch<SetStateAction<IFilm[]>>;
+  films?: IFilm[] | null;
+  setFilms?: Dispatch<SetStateAction<IFilm[]>>;
 }
 
 const GlobalContext = createContext<ContextProps>({

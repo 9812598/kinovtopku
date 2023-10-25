@@ -1,8 +1,6 @@
 ﻿import React from "react";
 
-type Props = {};
-
-export default function loading({}: Props) {
+export default function loading() {
   return (
     <div className="flex justify-center items-center min-h-screen">
       <svg className="animate-spin h-40 w-40 mr-3" viewBox="0 0 24 24">

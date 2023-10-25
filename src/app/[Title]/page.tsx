@@ -2,12 +2,9 @@
 import FilmHeader from "@/components/FilmHeader";
 import Image from "next/image";
 import Carousel from "@/components/Carousel";
-import { IFilm } from "@/types/types";
-import { isArray } from "util";
 
-type Props = {};
 
-async function getFilmByTitle(params) {
+async function getFilmByTitle(params: { Title: string; }) {
   const title = params.Title.replaceAll("_", "%20");
   const res = await fetch(`http://localhost:3004/films?Title=${title}`);
   if (!res.ok) {

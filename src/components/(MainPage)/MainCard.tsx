@@ -4,7 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { IFilm } from "@/types/types";
 
-export default function MainCard({ film }: IFilm) {
+type Props = {
+  film: IFilm;
+  key: string
+}
+
+export default function MainCard({ film, key } : Props) {
   return (
     <>
       <Link href={film.Title.replaceAll(" ", "_")}>
@@ -12,12 +17,12 @@ export default function MainCard({ film }: IFilm) {
           <h3 className="line-clamp-1">{film.Title}</h3>
           <h4 className="text-base">{film.Released}</h4>
           <p className="font-normal text-base line-clamp-3">{film.Plot}</p>
-          <div className="w-9/12 h-56 relative">
+          <div className="w-9/12 h-56 relative ">
             <Image
               src={film.Poster}
               fill
               alt="{film.Title}"
-              className="rounded-lg object-cover"
+              className="rounded-lg object-cover "
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
 ﻿export interface IFilm {
   Id: number;
-  Title: string;
+  Title?: string;
   Year: number;
   Released: string;
   Genre: string;
