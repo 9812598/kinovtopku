@@ -10,17 +10,12 @@ export default function Home() {
   const [films, setFilms] = useState(null);
   const { year, genre } = useGlobalContext();
 
-  useEffect(() => {
-    const yearUrl = year ? `Year=${year}` : "";
-    const genreUrl = genre ? `Genre=${genre}` : "";
-    const urlWithParams = yearUrl ? `${yearUrl}&${genreUrl}` : `${genreUrl}`;
-    // <MainFetch urlWithParams={urlWithParams} setFilms={setFilms} />;
+  const yearUrl = year ? `Year=${year}` : "";
+  const genreUrl = genre ? `Genre=${genre}` : "";
+  const urlWithParams = yearUrl ? `${yearUrl}&${genreUrl}` : `${genreUrl}`;
 
-    fetch(`http://localhost:3004/films?${urlWithParams}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setFilms(data);
-      });
+  useEffect(() => {
+    MainFetch({ urlWithParams, setFilms });
   }, [year, genre]);
 
   if (!films) return <p>No films data</p>;

@@ -6,17 +6,13 @@ type Props = {
   setFilms: (films: IFilm[]) => void;
 };
 
-async function getData({ urlWithParams, setFilms }: Props) {
-  const res = await fetch(`http://localhost:3004/films?${urlWithParams}`)
-    .then((res) => res.json())
-    .then((data) => {
-      setFilms(data);
-    });
-  return 25;
-}
-
 export default async function MainFetch({ urlWithParams, setFilms }: Props) {
-  let myNumb = await getData({ urlWithParams, setFilms });
+  const res = await fetch(`http://localhost:3004/films?${urlWithParams}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
 
-  return <h3>{myNumb}</h3>;
+  const result = await res.json();
+
+  setFilms(result);
 }
